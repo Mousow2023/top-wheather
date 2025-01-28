@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "airbnb",
+    "prettier", // Make sure this is the last one
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error", // Enforces Prettier formatting
+    "no-unused-vars": "warn", // Warn about unused variables
+    "semi": ["error", "always"], // Enforces semicolons as per your preference
+  },
+}
