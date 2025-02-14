@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheather App</title>
+    <!-- import gooogle icons -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icons=*" /> -->
+</head>
+
+<body>
+
+    <main class="main-container">
+
+        <header>
+            <form action="" class="search-form">
+                <input type="text" class="location-input" placeholder="Search location" name="location">
+                <button class="search-btn">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                </button>
+            </form>
+        </header>
+
+        <section class="weather-info">
+
+            <div class="location-date-container">
+                <div class="location">
+                    <span class="material-symbols-outlined">
+                        location_on
+                    </span>
+                    <h4 class="location-txt"></h4>
+                </div>
+                <h5 class="current-date-txt regular-text"></h5>
+            </div>
+
+            <div class="weather-summary-container">
+                <img src="assets/weather/clouds.svg" alt="Clouds weather icon" class="weather-summary-img">
+                <div class="weather-summary-info">
+                    <div class="temp-text"></div>
+                    <div class="conditions-text regular-text"></div>
+                </div>
+            </div>
+
+            <div class="weather-conditions-summary">
+
+                <div class="condition-item">
+                    <span class="material-symbols-outlined">
+                        water_drop
+                    </span>
+                    <div class="condition-info">
+                        <h5 class="regular-text">Humidity</h5>
+                        <h5 class="humidity-value"></h5>
+                    </div>
+                </div>
+
+                <div class="condition-item">
+                    <span class="material-symbols-outlined">
+                        air
+                    </span>
+                    <div class="condition-info">
+                        <h5 class="regular-text">Wind Speed</h5>
+                        <h5 class="wind-speed-value"></h5>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="weather-conditions-summary">
+                <div class="condition-item">
+                    <span class="material-symbols-outlined">
+                        thermometer
+                    </span>
+                    <div class="condition-info">
+                        <h5 class="regular-text">Feels Like</h5>
+                        <h5 class="feels-like-value"></h5>
+                    </div>
+                </div>
+
+                <div class="condition-item">
+                    <span class="material-symbols-outlined">speed</span>
+                    <div class="condition-info">
+                        <h5 class="regular-text">Precip</h5>
+                        <h5 class="precip-value"></h5>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="forecast-items-container">
+
+                <div class="forecast-item">
+                    <h5 class="forecast-item-date regular-text">06 Feb</h5>
+                    <img src="assets/weather/thunderstorm.svg" alt="Forecast weather icon" class="forecast-item-icon">
+                    <h5 class="forecast-item-temp">29 &#8451</h5>
+                </div>
+
+                <div class="forecast-item">
+                    <h5 class="forecast-item-date regular-text">06 Feb</h5>
+                    <img src="assets/weather/thunderstorm.svg" alt="Forecast weather icon" class="forecast-item-icon">
+                    <h5 class="forecast-item-temp">29 &#8451</h5>
+                </div>
+
+                <div class="forecast-item">
+                    <h5 class="forecast-item-date regular-text">06 Feb</h5>
+                    <img src="assets/weather/thunderstorm.svg" alt="Forecast weather icon" class="forecast-item-icon">
+                    <h5 class="forecast-item-temp">29 &#8451</h5>
+                </div>
+
+                <div class="forecast-item">
+                    <h5 class="forecast-item-date regular-text">06 Feb</h5>
+                    <img src="assets/weather/thunderstorm.svg" alt="Forecast weather icon" class="forecast-item-icon">
+                    <h5 class="forecast-item-temp">29 &#8451</h5>
+                </div>
+
+                <div class="forecast-item">
+                    <h5 class="forecast-item-date regular-text">06 Feb</h5>
+                    <img src="assets/weather/thunderstorm.svg" alt="Forecast weather icon" class="forecast-item-icon">
+                    <h5 class="forecast-item-temp">29 &#8451</h5>
+                </div>
+
+                <div class="forecast-item">
+                    <h5 class="forecast-item-date regular-text">06 Feb</h5>
+                    <img src="assets/weather/thunderstorm.svg" alt="Forecast weather icon" class="forecast-item-icon">
+                    <h5 class="forecast-item-temp">29 &#8451</h5>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="search-location section-message" style="display: none;">
+            <img src="assets/message/search-city.png" alt="An image indicating the user to search a city">
+            <div>
+                <h1>Search Location</h1>
+                <h4 class="regular-text">Find out the conditions of the location</h4>
+            </div>
+        </section>
+
+        <section class="not-found section-message" style="display: none;">
+            <img src="assets/message/not-found.png" alt="An image indicating that the location could not be found">
+            <div>
+                <h1>Location Not Found</h1>
+                <h4 class="regular-text">Sorry, the location you're looking for could not be found</h4>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

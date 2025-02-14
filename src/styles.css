@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", Arial, sans-serif;
+    color: white;
+    font-weight: 600;
+}
+
+body {
+    background: url("assets/bg.jpg");
+    width: 100%;
+    height: 100dvh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(15px);
+}
+
+/* UTILITIES */
+.regular-text {
+    font-weight: 400;
+}
+
+/* END UTILITIES */
+
+/* MAIN CONTENT STYLES */
+.main-container {
+    width: 75dvw;
+    max-width: 350px;
+    height: 85dvh;
+    max-height: 600px;
+    z-index: 1;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.15),
+            rgba(255, 255, 255, 0.15));
+    border-radius: 12px;
+    backdrop-filter: blur(100px);
+    padding: 1.25rem;
+    /* padding-bottom: 1rem; */
+}
+
+/* Form Styles */
+.search-form {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+form .location-input {
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 90px;
+    border: 3px solid transparent;
+    background: rgba(0, 0, 0, 0.15);
+    outline: none;
+    font-weight: 500;
+    padding-right: 45px;
+    transition: 0.25s border;
+}
+
+form .location-input:focus {
+    border: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+form .location-input::placeholder {
+    color: rgba(225, 225, 225, 0.75);
+}
+
+.search-btn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* End Of Form Styles */
+
+/* SECTION: WEATHER INFO */
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.location-date-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.location {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.weather-summary-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather-summary-img {
+    height: 7.5rem;
+    width: 7.5rem;
+}
+
+.weather-summary-info {
+    text-align: end;
+}
+
+.weather-conditions-summary {
+    display: flex;
+    justify-content: space-between;
+}
+
+.condition-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-align: left;
+}
+
+.condition-item span {
+    font-size: 1.8rem;
+}
+
+.forecast-items-container {
+    display: flex;
+    padding-bottom: 0.5rem;
+    gap: 1rem;
+    overflow-x: scroll;
+}
+
+.forecast-items-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.forecast-items-container::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 99px;
+}
+
+.forecast-items-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 99px;
+    transition: background-color 2s;
+    cursor: grab;
+}
+
+.forecast-items-container::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.forecast-item {
+    min-width: 4.375rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 10px;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 9px;
+    transition: .3s background-color;
+}
+
+.forecast-item:hover {
+    background-color: rgba(225, 225, 225, 0.15);
+}
+
+.forecast-item-icon {
+    width: 2.1rem;
+    height: 2.1rem;
+}
+
+/* END SECTION: WEATHER INFO */
+
+/* SECTION: MESSAGE */
+.section-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.section-message img {
+    height: 11.25rem;
+    width: fit-content;
+}
+
+/* .not-found {
+    display: none;
+} */
+
+/* END SECTION: MESSAGE */
