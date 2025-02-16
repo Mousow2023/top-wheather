@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+// import { container } from "webpack";
 import "./styles.css";
 
 // const mainContainer = document.querySelector(".main-container");
@@ -27,6 +28,24 @@ async function getWeatherData(location) {
   }
 }
 
+// Process the content of the six next days
+function processForecastDays(days) {
+  const datesContainer = [];
+
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < 6; i++) {
+    const day = days[i + 1];
+
+    const options = { day: "2-digit", month: "short" };
+
+    const date = new Date(day.datetime).toLocaleDateString("en-US", options);
+    const { icon, temp } = day;
+
+    datesContainer.push({ date, temperature: temp, icon });
+  }
+  return datesContainer;
+}
+
 // Process the weather data
 function processWeatherData(data) {
   if (!data) {
@@ -34,14 +53,14 @@ function processWeatherData(data) {
     return null;
   }
 
-  const current = data.currentConditions || data.days[0];
-  if (!current) {
+  const { currentConditions, days } = data || data.days[0];
+  if (!currentConditions) {
     console.error("No weather data found");
     return null;
   }
 
   const { feelslike, humidity, conditions, precip, icon, temp, windspeed } =
-    current;
+    currentConditions;
 
   return {
     location: data.resolvedAddress,
@@ -53,6 +72,7 @@ function processWeatherData(data) {
     icon,
     temperature: temp,
     windSpeed: windspeed,
+    days,
   };
 }
 
@@ -80,7 +100,7 @@ function displayData(dataObj) {
     day: "numeric",
   });
 
-  console.log(dataObj.temperature);
+  console.log(processForecastDays(dataObj.days));
 
   // Convert the temperature from Fahrenheit to Celcius
   // const tempInCelcius = Math.round((5 / 9) * (dataObj.temperature - 32));
