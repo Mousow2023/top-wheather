@@ -27,7 +27,7 @@
             </form>
         </header>
 
-        <section class="weather-info">
+        <section class="weather-info" style="display: none;">
 
             <div class="location-date-container">
                 <div class="location">
@@ -83,9 +83,11 @@
                 </div>
 
                 <div class="condition-item">
-                    <span class="material-symbols-outlined">speed</span>
+                    <span class="material-symbols-outlined">
+                        rainy
+                    </span>
                     <div class="condition-info">
-                        <h5 class="regular-text">Precip</h5>
+                        <h5 class="regular-text">Precipitation</h5>
                         <h5 class="precip-value"></h5>
                     </div>
                 </div>
@@ -133,7 +135,7 @@
             </div>
         </section>
 
-        <section class="search-location section-message" style="display: none;">
+        <section class="search-location section-message">
             <img src="assets/message/search-city.png" alt="An image indicating the user to search a city">
             <div>
                 <h1>Search Location</h1>

@@ -20,7 +20,7 @@ async function getWeatherData(location) {
     }
 
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     return json;
   } catch (error) {
     // console.error("Fetch error", error);
@@ -100,7 +100,19 @@ function displayData(dataObj) {
     day: "numeric",
   });
 
-  console.log(processForecastDays(dataObj.days));
+  // Display Forecast Date
+  const forecastDays = processForecastDays(dataObj.days);
+  const forecastContainer = document.querySelector(".forecast-items-container");
+  const forecastItems = forecastContainer.querySelectorAll(".forecast-item");
+  for (let i = 0; i < forecastDays.length; i += 1) {
+    const element = forecastDays[i];
+
+    forecastItems[i].querySelector("h5.forecast-item-date").textContent =
+      element.date;
+    forecastItems[i].querySelector("h5.forecast-item-temp").textContent =
+      `${Math.round(element.temperature)} ℃`;
+  }
+  console.log(forecastItems[0].querySelector("h5.forecast-item-date"));
 
   // Convert the temperature from Fahrenheit to Celcius
   // const tempInCelcius = Math.round((5 / 9) * (dataObj.temperature - 32));
@@ -115,7 +127,7 @@ function displayData(dataObj) {
   precipValueContent.textContent = `${Math.round(dataObj.precipitation)}%`;
 }
 
-getWeatherData("Paris")
+getWeatherData("Moscow")
   .then((data) => {
     // Process the data
     const processedData = processWeatherData(data);
