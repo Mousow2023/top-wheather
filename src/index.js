@@ -2,9 +2,6 @@
 // import { container } from "webpack";
 import "./styles.css";
 
-// const mainContainer = document.querySelector(".main-container");
-// const notFoundSection = document.querySelector(".not-found");
-
 // Get the weather data
 async function getWeatherData(location) {
   try {
@@ -112,7 +109,6 @@ function displayData(dataObj) {
     forecastItems[i].querySelector("h5.forecast-item-temp").textContent =
       `${Math.round(element.temperature)} ℃`;
   }
-  console.log(forecastItems[0].querySelector("h5.forecast-item-date"));
 
   // Convert the temperature from Fahrenheit to Celcius
   // const tempInCelcius = Math.round((5 / 9) * (dataObj.temperature - 32));
@@ -127,21 +123,41 @@ function displayData(dataObj) {
   precipValueContent.textContent = `${Math.round(dataObj.precipitation)}%`;
 }
 
-getWeatherData("Moscow")
-  .then((data) => {
-    // Process the data
-    const processedData = processWeatherData(data);
-    // Display the data on the page
-    displayData(processedData);
-  })
-  .catch((error) => {
-    console.error("Error", error);
-  });
+// Handle search form submission
+const weatherInfoContainerSection = document.querySelector(
+  "section.weather-info",
+);
+const searchLocationMessageSection = document.querySelector(
+  "section.search-location",
+);
+const locationNotFoundSection = document.querySelector("section.not-found");
+const searchForm = document.querySelector("form");
 
-// getWeatherData("london")
-//   .then((data) => {
-//     console.log("Weather data", data);
-//   })
-//   .catch((error) => {
-//     console.error("Error", error);
-//   });
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const locationInput = searchForm.querySelector(".location-input");
+
+  getWeatherData(locationInput.value)
+    .then((data) => {
+      // Process the data
+      const processedData = processWeatherData(data);
+      // Display the data on the page
+      displayData(processedData);
+
+      // Hide the search locataion section
+      searchLocationMessageSection.style.display = "none";
+      locationNotFoundSection.style.display = "none";
+
+      // Show the weather data container section
+      weatherInfoContainerSection.style.display = "";
+    })
+    .catch((error) => {
+      console.error("Error", error);
+
+      // Show the not found message section
+      locationNotFoundSection.style.display = "";
+      searchLocationMessageSection.style.display = "none";
+      weatherInfoContainerSection.style.display = "none";
+    });
+});
