@@ -2,6 +2,8 @@
 const path = require("path");
 // eslint-disable-next-line import/no-extraneous-dependencies
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+// eslint-disable-next-line import/no-extraneous-dependencies
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -13,6 +15,14 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/template.html",
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src/assets/vcsvgs"),
+          to: path.resolve(__dirname, "dist/assets/vcsvgs"),
+        },
+      ],
     }),
   ],
   module: {

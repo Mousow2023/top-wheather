@@ -89,6 +89,11 @@ function displayData(dataObj) {
     weatherInfoContainer.querySelector(".feels-like-value");
   const precipValueContent =
     weatherInfoContainer.querySelector(".precip-value");
+  const weatherSummaryIcon = weatherInfoContainer.querySelector(
+    ".weather-summary-img",
+  );
+
+  weatherSummaryIcon.src = `assets/vcsvgs/${dataObj.icon}.svg`;
 
   // Format todays data
   const todaysDate = new Date().toLocaleDateString("en-US", {
@@ -108,6 +113,8 @@ function displayData(dataObj) {
       element.date;
     forecastItems[i].querySelector("h5.forecast-item-temp").textContent =
       `${Math.round(element.temperature)} ℃`;
+    forecastItems[i].querySelector(".forecast-item-icon").src =
+      `assets/vcsvgs/${element.icon}.svg`;
   }
 
   // Convert the temperature from Fahrenheit to Celcius
