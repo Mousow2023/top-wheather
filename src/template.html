@@ -29,23 +29,29 @@
             </form>
         </header>
 
-        <section class="weather-info" style="display: none;">
+        <section class="weather-info">
 
             <div class="location-date-container">
                 <div class="location">
                     <span class="material-symbols-outlined">
                         location_on
                     </span>
-                    <h4 class="location-txt"></h4>
+                    <h4 class="location-txt">Touba</h4>
                 </div>
-                <h5 class="current-date-txt regular-text"></h5>
+                <h5 class="current-date-txt regular-text">Wed 19 03</h5>
             </div>
 
             <div class="weather-summary-container">
                 <img alt="Clouds weather icon" class="weather-summary-img">
                 <div class="weather-summary-info">
-                    <div class="temp-text"></div>
-                    <div class="conditions-text regular-text"></div>
+                    <div class="swith-unit-buttons">
+                        <button class="to-celcius active">°C</button>
+                        <button class="to-fahrenheit">°F</button>
+                    </div>
+                    <div>
+                        <div class="temp-text">20 °C</div>
+                        <div class="conditions-text regular-text">Overcast</div>
+                    </div>
                 </div>
             </div>
 
@@ -137,7 +143,7 @@
             </div>
         </section>
 
-        <section class="search-location section-message">
+        <section class="search-location section-message" style="display: none;">
             <img src="assets/message/search-city.png" alt="An image indicating the user to search a city">
             <div>
                 <h1>Search Location</h1>

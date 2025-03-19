@@ -188,6 +188,32 @@ form .location-input::placeholder {
     height: 2.1rem;
 }
 
+/* Swithc buttons */
+.swith-unit-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.swith-unit-buttons button {
+    font-weight: bold;
+    font-size: 18px;
+    height: 1.8rem;
+    width: 1.8rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: #f3f3f338;
+    border: 1px solid #ffffffa2;
+}
+
+.swith-unit-buttons button.active {
+    background-color: rgba(31, 31, 31, 0.849);
+    color: fff;
+    border: none;
+}
+
 /* END SECTION: WEATHER INFO */
 
 /* SECTION: MESSAGE */
