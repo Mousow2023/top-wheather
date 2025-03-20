@@ -121,7 +121,11 @@ form .location-input::placeholder {
 }
 
 .weather-summary-info {
-    text-align: end;
+    text-align: center;
+}
+
+.temp-text {
+    font-size: 25px;
 }
 
 .weather-conditions-summary {

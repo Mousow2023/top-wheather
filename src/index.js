@@ -158,6 +158,40 @@ searchForm.addEventListener("submit", (event) => {
 
       // Show the weather data container section
       weatherInfoContainerSection.style.display = "";
+
+      // Capture the buttons from the DOM
+      const toCelsiusButton = document.querySelector(".to-celcius");
+      const toFahrenheitButton = document.querySelector(".to-fahrenheit");
+
+      // Activate Celsius on page load
+      toFahrenheitButton.classList.remove("active");
+      toCelsiusButton.classList.add("active");
+
+      // Switch the temperature Celsuis
+      toCelsiusButton.addEventListener("click", () => {
+        if (!toCelsiusButton.classList.contains("active")) {
+          toFahrenheitButton.classList.remove("active");
+          toCelsiusButton.classList.add("active");
+        }
+
+        document.querySelector(".temp-text").textContent =
+          `${Math.round(processedData.temperature)} ℃`;
+      });
+
+      // Switch the temperature Fahrenheit
+      toFahrenheitButton.addEventListener("click", () => {
+        if (!toFahrenheitButton.classList.contains("active")) {
+          toCelsiusButton.classList.remove("active");
+          toFahrenheitButton.classList.add("active");
+        }
+
+        // Convert the Celsius temprature to Fahrenheit
+        const tempInFahrenheit = (processedData.temperature * 9) / 5 + 32;
+
+        // Display the temperature in Fahrenheit
+        document.querySelector(".temp-text").textContent =
+          `${Math.round(tempInFahrenheit)} ℉`;
+      });
     })
     .catch((error) => {
       console.error("Error", error);
